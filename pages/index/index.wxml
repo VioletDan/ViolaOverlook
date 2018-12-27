@@ -1,0 +1,41 @@
+<!-- 顶级view的class name默认article -->
+<view class="article index" style='height:{{articleHeight}}' catchtouchmove="true">
+  <!----section begin----->
+  <!-- <image class='bg' src="../../images/bg.jpg"></image> -->
+  <view class='title'>Read tired</view>
+  <scroll-view scroll-y class='recommend-feed' id='recommend-feed'>
+    <view class='feed-section'>
+      <block wx:for="{{noteData}}" wx:key="{{index}}">
+        <navigator class='feed-item' url="/pages/note/note?id={{item.target.id}}" hover-class="none" data-id='{{item.id}}'>
+          <view class='feed-content'>
+            <view class='cover' style='background-image:url("{{item.target.cover_url}}");' hidden='{{item.target.cover_url=="" ? true : false}}'>
+              <view style='padding-top: 100%;'></view>
+            </view>
+            <view class='h3'>{{item.title}}</view>
+            <view class='p'>{{item.target.desc}}</view>
+          </view>
+          <view class='author'>
+            by
+            <text class="name">{{item.target.author.name}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <view id="infinite-scroll-trigger" hidden='{{isShow}}'>
+      <view class="loadmore"></view>
+    </view>
+  </scroll-view>
+  <!----section end----->
+</view>
+<!----article end----->
+<!----iphoneX Bar----->
+<view id='iphoneXBar' wx:if="{{iphoneXBar}}"></view>
+<!----loadBox----->
+<view class="loadBox" id='loadBox' wx:if="{{loadBox}}">
+  <view class='span'>
+    <view wx:for='{{[0,0,0,0,0,0,0,0,0,0,0,0]}}' wx:key=""></view>
+  </view>
+</view>
+
+<!-- 引入文件 -->
+<import src="/pages/common/common.wxml" />

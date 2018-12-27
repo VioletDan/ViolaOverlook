@@ -1,0 +1,74 @@
+/* pages/note/note.wxss */
+
+.page {
+  margin: 0 auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  margin: 0 18px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.title {
+  color: #333;
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0;
+  font-family: 'Bitstream Vera Serif Bold';
+  background-color: #f1f8fe;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 0;
+}
+
+#channel_tags {
+  margin-top: 20rpx;
+}
+
+#channel_tags .h2 {
+  color: #aaa;
+  margin: 0 0 30rpx;
+  font-size: 30rpx;
+}
+
+.channel_tag {
+  background-color: #effaf0;
+  border: 1rpx solid #42bd56;
+  display: inline-block;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+  padding: 10rpx 28rpx 10rpx 20rpx;
+  border-radius: 30rpx;
+  margin-bottom: 20rpx;
+  background: no-repeat url(https://img3.doubanio.com/f/talion/bfe0e094023e9382c7d5707219476c2713f2aa94/pics/card/green_arrow.png) 75rpx center/16rpx;
+  /* padding-right: 28rpx; */
+  color: #42bd56;
+}
+
+.title2 {
+  margin: 20rpx 0 10rpx;
+  font-size: 40rpx;
+  word-break: break-all;
+}
+
+.user-title {
+  height: 22px;
+  line-height: 26px;
+  margin-bottom: 20px;
+}
+
+.user-title .info {
+  color: #494949;
+  font-size: 30rpx;
+  line-height: normal;
+}
+
+.user-title .info .timestamp {
+  color: #ccc;
+  margin-left: 5px;
+  font-size: 30rpx;
+}
