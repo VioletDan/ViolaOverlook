@@ -18,7 +18,7 @@ App({
         //播放背景音乐
         // this.bgm = require('common/js/base/bgm.js');
         // this.bgm.on({ src: 'http://t.sky.be-xx.com/wxapp/wxapp_frame/sound/bgm.mp3'});
-      loadFontFace();
+      // loadFontFace();
     },
     /**
      * 初始化

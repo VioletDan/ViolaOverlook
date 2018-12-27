@@ -30,8 +30,8 @@
       },
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/icon-books.png",
-        "selectedIconPath": "images/icon-books.png",
+        "iconPath": "images/icon-book1.png",
+        "selectedIconPath": "images/icon-book1.png",
         "text": "阅读"
       },
       {

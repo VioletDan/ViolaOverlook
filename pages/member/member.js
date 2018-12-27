@@ -72,7 +72,7 @@ Page({
 
       })
     });
-    this.loadBoxHandle();
+    // this.loadBoxHandle();
   },
   onReady: function () { }, //监听页面初次渲染完成
   onShow: function () {

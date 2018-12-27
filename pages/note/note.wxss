@@ -53,6 +53,7 @@
   margin: 20rpx 0 10rpx;
   font-size: 40rpx;
   word-break: break-all;
+  line-height: 1.4;
 }
 
 .user-title {
@@ -71,4 +72,33 @@
   color: #ccc;
   margin-left: 5px;
   font-size: 30rpx;
+}
+
+/* .note-body */
+.note-body{
+  margin-bottom: 20rpx;
+}
+.note-body .wxParse-p{
+  color: #494949;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+.note-body .wxParse-img,.note-body .image-container{
+  height: 0;
+}
+.note-body .rich-note-img{
+  width: 100%;
+  text-align: center;
+  height: 600rpx;
+  margin-top: 20rpx;
+  /* margin-bottom: 20rpx; */
+}
+.note-body .rich-note-img>.rimgItem{
+   margin: 20rpx 0;
+}
+.tips{
+  text-align: center;
+  color: #494949;
+  margin-top: 20rpx;
+  
 }

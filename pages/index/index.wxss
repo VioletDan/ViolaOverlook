@@ -87,7 +87,7 @@
 
 #recommend-feed {
   height: 100%;
-  margin-top: 80rpx;
+  /* margin-top: 80rpx; */
   /* padding-bottom: 130rpx; */
 }
 
@@ -158,7 +158,36 @@
   background: url(https://img3.doubanio.com/f/talion/bf2ef8c5c1a8c84dddfd1135656857e73582c5d8/pics/card/loading_grey.gif) 50% 50% no-repeat;
   background-size: 24px 24px;
 }
-
+#recommend-feed .date {
+    display: block;
+    padding: 25rpx 30rpx 25rpx 0;
+    text-align: center;
+    position: relative;
+    font-size: 36rpx;
+    color: #111;
+}
+#recommend-feed .date:before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2rpx;
+    background: #e3e3e3;
+    -webkit-transform: scaleY(0.5);
+    content: '';
+    position: absolute;
+    -webkit-transform-origin: 0 bottom;
+}
+#recommend-feed .date:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2rpx;
+    background: #e3e3e3;
+    -webkit-transform: scaleY(0.5);
+    content: '';
+    position: absolute;
+    -webkit-transform-origin: 0 bottom;
+}
 /**
    css media 适配
 */

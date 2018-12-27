@@ -7,13 +7,12 @@ const config = require('../../config.js');
 const util = require('../../utils/utils.js');
 const api = require('../../common/js/API.js');
 //-------------------------------------------------------初始化-------------------------------------------------------
-let $page, $query, SessionKey, OpenID;
+let $page, $query, SessionKey, OpenID, noteDataArr = [],i=0;
 let PageData = {
   tabArr: 1,
   fontFamily: 'Bitstream Vera Serif Bold',
   loaded: false,
-  noteData: [],
-  isShow: true
+  isShow: true,
 };
 Page({
   data: Object.assign({
@@ -74,21 +73,10 @@ Page({
   },
   // toggleClick: app.toggleClick
   lower: function(e) {
-    console.log(e)
-    $page.setData({
-      isShow: false
-    })
-  },
-  onPullDownRefresh: function() {
-    wx.showToast({
-      title: 'loading...',
-      icon: 'loading'
-    })
-    console.log('onPullDownRefresh', new Date())
-  },
-  onReachBottom: function() {
-    console.log('onReachBottom', new Date())
-  },
+    console.log('到底了');
+    requestData($page.data.noteData[i].date);
+    i++;
+  }
 }) //end page
 
 //-------------------------------------------------------业务逻辑-------------------------------------------------------
@@ -96,12 +84,15 @@ Page({
 //---------------------------------------------------------init
 function init_handler() {
   console.log('init_handler');
-  // loadFontFace();
+  requestData();
+} //end init
+
+function requestData(next_date){
   wx.request({
     url: 'https://m.douban.com/rexxar/api/v2/recommend_feed',
     data: {
       alt: 'json',
-      next_date: '',
+      next_date: next_date || '',
       loc_id: '108288',
       gender: '',
       birthday: '',
@@ -112,29 +103,11 @@ function init_handler() {
       'content-type': 'application/json' // 默认值
     },
     success(res) {
-      // console.log(res.data.recommend_feeds)
+      console.log(res.data)
+      noteDataArr.push(res.data);
       $page.setData({
-        noteData: res.data.recommend_feeds
+        noteData: noteDataArr
       })
     }
   })
-} //end init
-
-function loadFontFace() {
-  wx.loadFontFace({
-    family: $page.data.fontFamily,
-    source: 'url("https://sungd.github.io/Pacifico.ttf")',
-    success(res) {
-      console.log(res.status)
-      $page.setData({
-        loaded: true
-      })
-    },
-    fail: function(res) {
-      console.log(res.status)
-    },
-    complete: function(res) {
-      console.log(res.status)
-    }
-  });
 }

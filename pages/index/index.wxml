@@ -2,10 +2,11 @@
 <view class="article index" style='height:{{articleHeight}}' catchtouchmove="true">
   <!----section begin----->
   <!-- <image class='bg' src="../../images/bg.jpg"></image> -->
-  <view class='title'>Read tired</view>
-  <scroll-view scroll-y class='recommend-feed' id='recommend-feed'>
-    <view class='feed-section'>
-      <block wx:for="{{noteData}}" wx:key="{{index}}">
+  <!-- <view class='title'>Read tired</view> -->
+  <scroll-view scroll-y class='recommend-feed' id='recommend-feed' bindscrolltolower="lower">
+    <view class='feed-section' wx:for="{{noteData}}" wx:key="{{index}}">
+      <view class="date" wx:if="{{index>0}}">{{item.date}}</view>
+      <block wx:for="{{item.recommend_feeds}}" wx:key="{{index}}">
         <navigator class='feed-item' url="/pages/note/note?id={{item.target.id}}" hover-class="none" data-id='{{item.id}}'>
           <view class='feed-content'>
             <view class='cover' style='background-image:url("{{item.target.cover_url}}");' hidden='{{item.target.cover_url=="" ? true : false}}'>
@@ -21,7 +22,7 @@
         </navigator>
       </block>
     </view>
-    <view id="infinite-scroll-trigger" hidden='{{isShow}}'>
+    <view id="infinite-scroll-trigger">
       <view class="loadmore"></view>
     </view>
   </scroll-view>

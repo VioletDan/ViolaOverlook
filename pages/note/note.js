@@ -80,16 +80,17 @@ function init_handler(id) {
       'content-type': 'application/json' // 默认值
     },
     success(res) {
+      console.log(res.data)
+      $page.setData({
+        noteInfo: res.data
+      });
       var result = res.data.content.match(/<style(([\s\S])*?)<\/style>/g)
       console.log(result)
-      console.log(res.data.content);
+      // console.log(res.data.content);
       // console.log(res.data.content.slice(0, res.data.content.indexOf('</style>')+8))
       // console.log(res.data.content.slice(res.data.content.indexOf('</style>') + 8, res.data.content.length))
-      // htmlData = res.data.content.slice(res.data.content.indexOf('</style>') + 8, res.data.content.length);
-      // WxParse.wxParse('article', 'html', htmlData, $page,5)
-      // $page.setData({
-      //   noteInfo: res.data
-      // })
+      htmlData = res.data.content.slice(res.data.content.indexOf('</style>') + 8, res.data.content.length);
+      WxParse.wxParse('article', 'html', htmlData, $page,5)
     }
   })
 } //end init

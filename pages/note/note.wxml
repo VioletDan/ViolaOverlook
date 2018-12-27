@@ -1,43 +1,37 @@
 <!--pages/note/note.wxml-->
 <view class='page'>
-  <view class='title'>Read tired</view>
   <view class='card'>
     <view class="header">
       <view id="channel_tags">
         <view class='h2'>所属频道</view>
-        <view class="channel_tag">
-          美食
-        </view>
-        <view class="channel_tag">
-          饮品
-        </view>
-        <view class="channel_tag">
-          冬天
-        </view>
-        <view class="channel_tag">
-          生活
-        </view>
-        <view class="channel_tag">
-          食谱
-        </view>
+        <block wx:for="{{noteInfo.tags}}" wx:key="{{index}}">
+          <view class="channel_tag">{{item.name}}</view>
+        </block>
       </view>
-      <view class="title2">食记录｜冬天需要一杯热可可。</view>
+      <view class="title2">{{noteInfo.title}}</view>
       <view class="user-title">
         <view class="info">
-          迷特波鲁
-          <text class="timestamp">2018-12-04 15:14:58</text>
+          {{noteInfo.author.name}}
+          <text class="timestamp">{{noteInfo.update_time}}</text>
         </view>
       </view>
     </view>
-    <view class='note-content paper'>
+    <scroll-view scroll-y class='note-content paper'>
       <view class='note-body' id='note-body'>
         <view class='rich-note'>
-          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+          <view class='tips' hidden='{{noteInfo.photos.length==0}}'>上下滑动查看所有图片哦~~~</view>
+          <scroll-view scroll-y class='rich-note-img' hidden='{{noteInfo.photos.length==0}}'>
+            <block wx:for="{{noteInfo.photos}}" wx:key="{{index}}">
+              <image class='rimgItem' src="{{item.image.normal.url}}" 
+              style='width:{{item.image.normal.width}}rpx;height:{{item.image.normal.height}}rpx;'></image>
+            </block>
+          </scroll-view>
         </view>
       </view>
-    </view>
+    </scroll-view>
   </view>
 </view>
 
 <!-- 引入文件 -->
-<import src="/wxParse/wxParse.wxml"/>
+<import src="/wxParse/wxParse.wxml" />
