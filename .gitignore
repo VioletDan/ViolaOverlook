@@ -1,0 +1,4 @@
+.DS_Store
+functions/GetOpenID/node_modules/
+dist/
+npm-debug.log

@@ -59,7 +59,7 @@ const iuser = function () {
      * 解析用户数据
      */
     user.parse = function (data) {
-        console.log('user', data);
+        // console.log('user', data);
         this.encryptedData = data.encryptedData;
         this.iv = data.iv;
         this.rawData = data.rawData;

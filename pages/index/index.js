@@ -29,14 +29,7 @@ Page({
   onLoad: function(option) {
     $page = this;
     $query = option;
-    // init_handler();
-    app.initApp(false, function() {
-      console.log('getQueryString', option);
-      init_handler();
-    });
-    this.setData({
-      loaded: false
-    })
+    app.initApp(false, init_handler);
   },
   onReady: function() {}, //监听页面初次渲染完成
   onShow: function() {
@@ -50,23 +43,6 @@ Page({
   onReachBottom: function() {}, //页面上拉触底事件的处理函数
   onShareAppMessage: function() { //用户点击右上角分享
     return app.setShareData();
-  },
-  getUserInfo: function(userRes) {
-    // console.log('userRes.detail.errMsg:' + userRes.detail.errMsg);
-    if (userRes.detail.errMsg == 'getUserInfo:fail auth deny') {
-      wx.showModal({
-        title: '提示',
-        content: '该小程序需要获取您的昵称和头像,请您允许该小程序访问您的个人信息。',
-        showCancel: false
-      })
-    } else {
-      iuser.parse(userRes.detail);
-      this.setData({
-        hasUserInfo: true,
-        userInfo: iuser.userInfo
-      });
-      init_handler();
-    }
   },
   bgmClick: function() { //背景音乐按钮点击事件
     app.bgm.click();
@@ -103,7 +79,7 @@ function requestData(next_date){
       'content-type': 'application/json' // 默认值
     },
     success(res) {
-      console.log(res.data)
+      // console.log(res.data)
       noteDataArr.push(res.data);
       $page.setData({
         noteData: noteDataArr

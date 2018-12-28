@@ -1,7 +1,7 @@
 /**app.wxss**/
 @import 'wxParse/wxParse.wxss';
 @import 'common/css/common.wxss';
-scroll-view.content{position:absolute;top:0;left:0;width:100%;bottom:130rpx;}
+scroll-view.content{position:absolute;top:0;left:0;width:100%;/*bottom:130rpx;*/}
 .article .bg{width: 100%;height: 151rpx;position: absolute;top: 0;}
 .footnav{height: 130rpx;position: fixed;bottom: 0;width: 100%;left: 0;}
 .footnav .cont{height: 130rpx;width: 100%;background: #fff;display: flex;}

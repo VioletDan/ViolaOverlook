@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/life/life",
-    "pages/parter/parter",
     "pages/member/member",
+    "pages/parter/parter",
     "pages/inpage/inpage",
     "pages/upload/upload",
     "pages/lottery/lottery",
@@ -44,5 +44,6 @@
   },
   "navigateToMiniProgramAppIdList": [
     "wx43f7102e4bcd55fa"
-  ]
+  ],
+  "cloud": true
 }
