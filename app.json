@@ -14,7 +14,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1e8aff",
     "navigationBarTitleText": "ViolaOverlook",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -42,8 +42,6 @@
       }
     ]
   },
-  "navigateToMiniProgramAppIdList": [
-    "wx43f7102e4bcd55fa"
-  ],
+  "navigateToMiniProgramAppIdList": ["wx43f7102e4bcd55fa"],
   "cloud": true
 }
